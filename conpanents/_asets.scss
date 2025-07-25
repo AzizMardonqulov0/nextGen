@@ -6,17 +6,21 @@
 
 // Varables
 
-$apsalutColor11:#fff;
+$apsalutColor1:#fff;
 $apsalutColor2:#000;
 
 // map
-
-$orangeShadesD:("darkOrange1" : #CEBD63, "darkOrange2" : #D4C677, "darkOrange3" :#DACE8B ,  "darkOrange4": #E6DEB2);
+$orangeShadesD:("darkOrange1" :#CE7D63, "darkOrange2" : #D48E77, "darkOrange3" :#DA9E8A ,  "darkOrange4": #E7BEB1);
 $orangeShadesL:("darkOrange1" : #F2EED8, "darkOrange2" :#F9F7EC, "darkOrange3" :#FBFAF3 ,  "darkOrange4":#FDFEFB);
 $DarkShederD:("darkOrange1" : #0F0F0F, "darkOrange2" : #1A1A1A, "darkOrange3" :#1F1F1F ,  "darkOrange4": #262626);
 $DarkShederL:("darkOrange1" : #333333, "darkOrange2" :#404040, "darkOrange3" :#4D4D4D ,  "darkOrange4":#595959);
 $GreyShederD:("darkOrange1" : #676665, "darkOrange2" : #81807E  , "darkOrange3" :#B3B3B2  ,"darkOrange4": #CACACE);
 $GreyShederdL:("darkOrange1" : #E6E6E6   , "darkOrange2" :#F2F2F2 , "darkOrange3" :#F7F7F7,  "darkOrange4":#FCFCFC);
+
+
+$StandartPad:1rem;
+$navLogoWid:84px;
+
 
 // mix
 
@@ -27,15 +31,52 @@ $GreyShederdL:("darkOrange1" : #E6E6E6   , "darkOrange2" :#F2F2F2 , "darkOrange3
     justify-content: $jus;
 }
 @mixin button($pad1 , $pad2 , $bor){
-    padding:$pad1 , $pad2 ;
+    padding:$pad1  $pad2 !important ;
+    width: fit-content;
+    height: fit-content;
     border-radius: $bor;
     background-color:map.get($DarkShederD , darkOrange2);
-    color: map-get($GreyShederD , darkOrange2);
+    color: map.get($GreyShederD , darkOrange2);
+    cursor: pointer;
 }
 
 @mixin squareBut(){
-    padding:$pad1 , $pad2 ;
+    padding:$pad1  $pad2 ;
     border-radius: 50%;
     background-color:map.get($orangeShadesD , darkOrange2);
-    color: map-get($GreyShederD , darkOrange2);
+    color: map.get($GreyShederD , darkOrange2);
+    cursor: pointer;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.5s ease;
+}
+h1{
+    display: none;
+}
+body{
+    background-color: map.get($DarkShederD , darkOrange1);
+}
+a{
+    font-family:"Roboto Mono";
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    color:$apsalutColor1;
+}
+
+
+// add class
+
+header ul li  .active{
+    color: map.get($orangeShadesD , darkOrange1) !important;
 }

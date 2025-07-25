@@ -1,4 +1,176 @@
 @use '../conpanents/asets' as *;
-h1{
-    display: none;
+@use 'sass:list';
+@use 'sass:map';
+
+header{
+    width: 100%;
+    padding-left: $StandartPad;
+    padding-right: $StandartPad;
+    padding-top: 41px;
+}
+nav{   
+    @include flex(0px , row ,space-between);
+    width: 100%;
+    padding-top: $StandartPad;
+    padding-bottom: $StandartPad;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: map-get($DarkShederD , darkOrange3);
+    background-image: linear-gradient(to left top, map-get($DarkShederD , darkOrange4),map-get($DarkShederD , darkOrange2  )); 
+    border-radius: 10px;
+    position: relative;
+
+    a{
+         @include flex(0px , row ,center);
+         align-items: center;
+         
+         img{
+             width: $navLogoWid;
+             height: fit-content;
+             }
+    } 
+   
+    ul:nth-child(2){
+        @include flex(10px , column ,center);
+        align-items: center;
+        position: fixed; 
+        // top: 150px;
+        top: -100vh;
+        left: 0;
+        width: 100%;
+        height: fit-content; 
+
+        li{
+            width: 90%;
+            padding: 14px  20px ;
+            list-style: none; 
+            background-image: linear-gradient(to left top, map-get($DarkShederD , darkOrange4),map-get($DarkShederD , darkOrange2  )); 
+
+        }
+    }
+}
+.bars{
+    @include button(12px,12px ,10px);
+    padding:  0 0;
+    width: 40px;
+    height: 40px;
+    background-color: map.get($DarkShederD , darkOrange1);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    span{
+        position: absolute;
+        top:30%;
+        content: "";
+        width: 50%;
+        height: 1px;
+        background-color: #fff;
+
+        &::after{
+            position: absolute;
+            right: 0;
+            top:7px;
+            content: "";
+            width: 100%;
+            height: 1.3px;
+            background-color: #fff;
+        }
+
+       &::before{
+            position: absolute;
+            right: 0;
+            top:14px;
+            content: "";
+            width: 60%;
+            height: 1.7px;
+            background-color: #fff;
+        }
+    }
+}
+.openNavB{
+  span{
+    transform: rotate(60deg);
+    top: 20px;
+    height: 2px;
+    width: 80%;
+
+    &::after{
+      transform: rotate(-100deg);
+      height: 3px;
+      top:-1px;
+    }
+    &::before{
+      display: none;
+    }
+  }
+}
+.openNav{
+  top: 150px !important;
+}
+
+
+
+
+
+
+// medios
+
+@media only screen and (min-width:1050px) {
+   $StandartPad:20px;
+    header{
+        padding-left: $StandartPad;
+        padding-right: $StandartPad;
+    }
+    nav{
+      padding-left: $StandartPad;
+      padding-right: $StandartPad;
+    }
+    nav {
+         ul:nth-child(2){
+            position: static;
+            flex-direction: row;
+            @include flex(2rem , row , end);
+            align-items: center;
+              li{
+                width: fit-content;
+                padding: 0px 0px;
+                background-image: linear-gradient(to left top,#00000000 , #ffffff00 ); 
+              }
+              a{   
+                @include button(15px , 18px , 10px);
+              }
+              li:nth-child(7){
+                a{
+                  background-color:map.get($orangeShadesD , darkOrange1) ;
+                  color: map.get($DarkShederD , darkOrange2 );
+                }
+              }
+         }
+         ul:nth-child(3){
+            display: none;
+         }
+    }
+}
+@media only screen and (min-width:1200px) {
+     $StandartPad:40px;
+    header{
+        padding-left: $StandartPad;
+        padding-right: $StandartPad;
+    }
+    nav{
+        padding-left: $StandartPad;
+        padding-right: $StandartPad;
+    }
+}
+@media only screen and (min-width:1700px) {
+     $StandartPad:50px;
+    header{
+        padding-left: $StandartPad;
+        padding-right: $StandartPad;
+    }
+    nav{
+         padding-left: $StandartPad;
+        padding-right: $StandartPad;
+    }
 }
